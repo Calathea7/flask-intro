@@ -41,6 +41,14 @@ def say_hello():
         <h1>Hi There!</h1>
         <form action="/greet">
           What's your name? <input type="text" name="person">
+          Which compliment do you want?
+          <select name="compliment">
+            <option value="terrific">Terrific</option>
+            <option value="fantastic">Fantastic</option>
+            <option value="awesome">Awesome</option>
+            <option value="brilliant">Brilliant</option>
+            <option value="wonderful">Wonderful</option>
+          </select>
           <input type="submit" value="Submit">
         </form>
       </body>
@@ -54,7 +62,7 @@ def greet_person():
 
     player = request.args.get("person")
 
-    compliment = choice(AWESOMENESS)
+    compliment = request.args.get("compliment")
 
     return """
     <!doctype html>
